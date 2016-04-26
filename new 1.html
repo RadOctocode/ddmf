@@ -1,0 +1,52 @@
+<!DOCTYPE>
+<html>
+<head>
+<script src="processing.js"></script>
+<script>
+var xpos=Math.floor((Math.random() * 300) + 50);
+var ypos=Math.floor((Math.random() * 100) + 50);
+console.log(xpos);
+console.log(ypos);
+</script>
+<script type="text/processing" data-processing-target="mycanvas">
+
+void setup(){
+size(350, 600);
+myHand=new Hand(xpos, ypos);
+}
+void draw(){
+background(51);
+myHand.draw();
+myHand.moving();
+}
+class Hand{
+//variabl
+var X;
+var Y;
+//constructor
+	Hand(xp,yp){
+	X=xp
+	Y=yp
+	}
+//functions
+	void draw(){
+	ellipse(X,Y, 55, 55);
+	}
+	void moving(){
+	X=X-1
+	Y=((-156/14)*X)+(5175/2)
+	ellipse(X,Y, 55, 55);
+	}
+	/*void touched(){
+	//if clicked hand disappears.
+	}
+testing testing}*/
+
+}
+</script>
+</head>
+<body>
+<h1>hey</h1>
+<center><canvas id="mycanvas"></canvas></center>
+</body>
+</html>
